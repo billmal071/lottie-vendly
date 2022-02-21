@@ -14,7 +14,6 @@ const axiosHook = axios.create({
   headers: {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
-    "Access-Control-Allow-Origin": "*",
   },
 });
 
