@@ -4,6 +4,12 @@
   functions = "netlify/functions"
   publish = ".next"
 
+  [context.production]
+  environment = { 
+    NEXT_PUBLIC_API_URL=https://api.twitter.com/2,
+    NEXT_PUBLIC_API_KEY=AAAAAAAAAAAAAAAAAAAAANdjZQEAAAAADOsd0JB15R3Bci%2BHbi%2FeoQ6Op%2FM%3DrWd7FNuGNT7vQv30xvTJErND06HTVxw0mlUzieWjB93IYqRprW
+  }
+
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   #[[redirects]]
