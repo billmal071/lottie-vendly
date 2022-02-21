@@ -113,7 +113,7 @@ export default function Container({
           text="Continue"
           icon="/white-right-arrow.svg"
           cssProps={
-            "tw-border tw-border-green-1 tw-text-white tw-bg-green-2 tw-text-green-4"
+            "tw-border tw-border-green-1 tw-text-white tw-bg-green-2"
           }
           cmd={() => router.push("/done")}
         />

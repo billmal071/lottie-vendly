@@ -5,9 +5,10 @@ const source = CancelToken.source();
 
 const token = process.env.NEXT_PUBLIC_API_KEY!;
 const url = process.env.NEXT_PUBLIC_API_URL!;
+const prod = process.env.NODE_ENV === "production";
 
 const axiosHook = axios.create({
-  baseURL: `https://cors-anywhere.herokuapp.com/${url}`,
+  baseURL: `${!prod ? `https://cors-anywhere.herokuapp.com/${url}` : url}`,
   timeout: 9000,
   cancelToken: source.token,
   headers: {
