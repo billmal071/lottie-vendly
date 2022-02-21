@@ -10,11 +10,11 @@ A survey task for VENDLY
 
 ## INSTRUCTIONS
 
-git clone applink
-
+git clone [applink](https://github.com/billmal071/lottie-vendly.git)
+copy into .env from .env.example
 using yarn
-run the app
 
 ```js
+yarn
 yarn dev
 ```
