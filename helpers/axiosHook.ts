@@ -5,10 +5,9 @@ const source = CancelToken.source();
 
 const token = process.env.NEXT_PUBLIC_API_KEY!;
 const url = process.env.NEXT_PUBLIC_API_URL!;
-// const prod = process.env.NODE_ENV === "production";
 
 const axiosHook = axios.create({
-  baseURL: `https://cors-anywhere.herokuapp.com/${url}`,
+  baseURL: url,
   timeout: 9000,
   cancelToken: source.token,
   headers: {
@@ -18,6 +17,22 @@ const axiosHook = axios.create({
 });
 
 axiosHook.interceptors.response.use(
+  (response) => response.data,
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export const instance = axios.create({
+  baseURL: "/api/twitter/",
+  timeout: 9000,
+  cancelToken: source.token,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+instance.interceptors.response.use(
   (response) => response.data,
   (error) => {
     return Promise.reject(error);

@@ -1,4 +1,5 @@
 import { TwitterContext } from "@/context/context.action";
+import { instance } from "@/helpers/axiosHook";
 import useName from "@/hooks/useName";
 import React, { useContext, useEffect } from "react";
 
@@ -19,8 +20,9 @@ export default function TextInput({
   setStatus,
   cssProps,
 }: TextInputProps) {
-  const { getLoading, data, error, loading } = useContext(TwitterContext);
-  const { isLoading, data: twitterData, error: twitterError } = useName(val);
+  const { getLoading } = useContext(TwitterContext);
+  const { isLoading } = useName(val);
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setValue(e.target.value);
     setStatus(false);
